@@ -1,4 +1,6 @@
 {-# Language NoMonomorphismRestriction #-}
+{-Сгенерировать все возможные расстановки максимального количества слонов на доске NxN-}
+
 import Data.Array
 
 emptyBoard n = array ((1,1),(n,n)) [((i,j), 0) | i <- [1..n], j <- [1..n]]
