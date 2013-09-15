@@ -23,7 +23,7 @@ possibleMoves b (x, y) =
 numberOfNotVisited board (x, y) =
     foldl (+) 0 [board ! (a, b) | (a, b) <- possibleMoves board (x, y)]
     
-mySort ((a1, b1), n1) ((a2, b2), n2)
+mySort ((_, _), n1) ((_, _), n2)
     | n1 > n2 = GT
     | n1 < n2 = LT
     | n1 == n2 = EQ
