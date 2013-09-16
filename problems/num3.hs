@@ -23,12 +23,12 @@ possibleMoves b (x, y) =
 numberOfNotVisited board (x, y) =
     foldl (+) 0 [board ! (a, b) | (a, b) <- possibleMoves board (x, y)]
     
-mySort ((_, _), n1) ((_, _), n2)
+myCompare ((_, _), n1) ((_, _), n2)
     | n1 > n2 = GT
     | n1 < n2 = LT
     | n1 == n2 = EQ
 
-warnsdorff board (x, y) = sortBy mySort [((a, b), numberOfNotVisited board (a, b)) | (a, b) <- possibleMoves board (x, y), 
+warnsdorff board (x, y) = sortBy myCompare [((a, b), numberOfNotVisited board (a, b)) | (a, b) <- possibleMoves board (x, y), 
                                                                                                board ! (a, b) == 1]
 
 tour b p res
