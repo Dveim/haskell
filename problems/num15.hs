@@ -10,11 +10,13 @@ splitToSentences s = let (l, s') = break (`elem` ['.', '!', '?']) s
             [] -> []
             (_:s'') -> splitToSentences s''
 
+myCompare :: String -> String -> Ordering
 myCompare s1 s2
     | length s1 > length s2 = GT
     | length s1 < length s2 = LT
     | True = EQ
     
+main :: IO ()
 main = do
     s <- readFile =<< getLine
     print $ sortBy myCompare $ splitToSentences s
