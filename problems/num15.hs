@@ -15,7 +15,7 @@ myCompare s1 s2
     | length s1 > length s2 = GT
     | length s1 < length s2 = LT
     | True = EQ
-    
+
 main :: IO ()
 main = do
     s <- readFile =<< getLine
