@@ -4,7 +4,7 @@ import Data.List
 
 splitToSentences :: String -> [String]
 splitToSentences "" = []
-splitToSentences s = let (l, s') = break (`elem` ['.', '!', '?']) s
+splitToSentences s = let (l, s') = break (elem ['.', '!', '?']) s
     in l : 
         case s' of
             [] -> []
