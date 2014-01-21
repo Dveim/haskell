@@ -1,14 +1,7 @@
 {-Вывести все предложения заданного текста (хранящегося в файле) в порядке возрастания количества слов в каждом из них-}
 
 import Data.List
-
-splitToSentences :: String -> [String]
-splitToSentences "" = []
-splitToSentences s = let (l, s') = break (elem ['.', '!', '?']) s
-    in l : 
-        case s' of
-            [] -> []
-            (_:s'') -> splitToSentences s''
+import Data.List.Split
 
 myCompare :: String -> String -> Ordering
 myCompare s1 s2
@@ -19,4 +12,4 @@ myCompare s1 s2
 main :: IO ()
 main = do
     s <- readFile =<< getLine
-    print $ sortBy myCompare $ splitToSentences s
+    print $ sortBy myCompare $ splitOneOf "!?." s
