@@ -12,4 +12,4 @@ myCompare s1 s2
 main :: IO ()
 main = do
     s <- readFile =<< getLine
-    print $ sortBy myCompare $ splitOneOf "!?." s
+    print $ sortBy myCompare $ nub $ splitOneOf " !?.\n" s
